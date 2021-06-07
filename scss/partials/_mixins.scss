@@ -1,0 +1,86 @@
+@mixin google-font($font){
+  $font: unquote($font);
+  @import url(https://fonts.googleapis.com/css?family=#{$font});
+}
+
+@mixin blue-beans{
+  @if $brand==blue-beans{
+    @content;
+  }
+}
+@mixin tiny-screen {
+  @media only screen and (max-width:320px)
+  {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media only screen and (max-width:480px)
+  {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media only screen and (max-width:680px)
+  {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media only screen and (max-width:960px)
+  {
+    @content;
+  }
+}
+
+@mixin warning {
+    background-color: orange;
+    color: #fff;
+    &:hover{
+      background-color: lighten(orange, 10%);
+    }
+  }
+  
+  @mixin box-shadow($shadows...){
+    box-shadow: $shadows;
+    -moz-box-shadow: $shadows;
+    -webkit-box-shadow: $shadows;
+  }
+
+  @mixin large-text {
+    font: {
+      size: 22px;
+      weight: bold;
+    }
+  }
+  
+  @mixin rounded($radius) {
+    border-radius: $radius;
+  }
+
+  @mixin box($radius,$border){
+    @include rounded($radius);
+    border: $border;
+  }
+  
+  @mixin fancy-links {  
+    a {
+      font-style: italic;
+      text-decoration: none;
+    }
+  }
+  
+  @mixin clearfix {
+    display: inline-block;
+    &:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+    * html & { height: 1px }
+  }
